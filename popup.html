@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-size: 14px;
+            width: 230px;
+            font-family: Microsoft JhengHei;
+        }
+        
+        .header {
+            background-color: #5599FF;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .header p {
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+        }
+        
+        .header-logo {
+            content: url(img/logo.png);
+            cursor: pointer;
+            height: auto;
+            width: 55%;
+        }
+        
+        .container {
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-8 order-md-1">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="auto-scroll">
+                <label class="custom-control-label" for="auto-scroll">定位開水主畫面</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="block-ad-new">
+                <label class="custom-control-label" for="block-ad-new">隱藏非開水畫面</label>
+            </div>
+            
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="info-show">
+                <label class="custom-control-label" for="info-show">替代官方分享</label>
+            </div>
+            <hr style="margin-bottom: 5px; margin-top: 5px;">
+            <h5  style="text-align: center;">速度 x 
+                <span id="speedValue">1</span></h5>
+            <div>
+                <input type="range" class="slider" id="speedRange" min="0.1" max="10" step="0.1" value="1" style="width: 100%;">
+                <button id="resetSpeed" class="btn btn-sm btn-block btn-primary">恢復預設速度</button>
+            </div>
+            <hr style="margin-bottom: 0; margin-top: 5px;">
+            <div id="ratio"></div>
+            <hr style="margin-bottom: 0; margin-top: 5px;">
+        </div->
+        <div class="alert alert-danger text-center" style="display: none;" role="alert" id="refresh-danger">
+            請重新整理遊戲讓設定生效
+        </div>
+        <div class="alert alert-danger text-center" style="display: none;" role="alert" id="refresh-chrome">
+            請重新開啟瀏覽器讓設定生效
+        </div>
+        <a href="https://www.facebook.com/groups/819844528089417/" target="_blank" class="btn btn-sm btn-block btn-outline-primary">Easy開心餵食器</a>
+        <a href="http://fish.mayifree.com/" target="_blank" class="btn btn-sm btn-block btn-outline-primary">MayiFree網站</a>
+    </div>
+    <script src="/scripts/popup.js"></script>
+</body>
+
+</html>
