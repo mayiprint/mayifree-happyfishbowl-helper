@@ -1,4 +1,4 @@
-//右鍵快捷鍵 未寫完
+//Todo:未完成
 function helpUrlCheck(url) {
     if ((url.indexOf("happyfishbowl") >= 0 && url.indexOf("share.jsp") >= 0 && url.indexOf("apps.facebook.com") >= 0) && url.indexOf("uid") >= 0) {
         return true;
@@ -14,8 +14,9 @@ function helpUrlOnClick(info, tab) {
     }
 }
 
+
+//刪除樂元素cookies
 function clearCookies() {
-    //刪除樂元素cookies
     chrome.cookies.getAll({
         domain: ".he-games.com"
     }, function (cookies) {
@@ -39,6 +40,7 @@ function clearCookies() {
         }
     });
 }
+
 // 監聽content scripts傳遞過來指令
 chrome.runtime.onMessage.addListener(function (message, sender, callback) {
     console.log('傳遞', message.command);
@@ -66,7 +68,7 @@ const rule = {
 };
 chrome.declarativeNetRequest.updateDynamicRules({
     addRules: [rule],
-    removeRuleIds: [1] // 移除舊的規則 (以防萬一，雖然理論上不會有)
+    removeRuleIds: [1]
 }, () => {
     if (chrome.runtime.lastError) {
         console.error("Error adding rule: ", chrome.runtime.lastError);
