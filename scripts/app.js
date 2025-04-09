@@ -156,7 +156,7 @@ if (location.hostname == "fishbowl.he-games.com" || location.hostname == "bot.ip
         if (areaName === 'local') {
           for (let key in changes) {
             let storageChange = changes[key];
-            if (key = "speedRange"){
+            if (key == "speedRange"){
                 if(IsNum(storageChange.newValue)){
                     window.postMessage({ type: "SETTINGS", settings: { speedSetting: parseFloat(storageChange.newValue) } }, "*");
                 }
