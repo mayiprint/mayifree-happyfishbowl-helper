@@ -1,6 +1,6 @@
 {
     "name": "MayiFree-開水小助手",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "manifest_version": 3,
     "description": "MayiFree-開水小助手是針對開心水族箱優化所開發擴充。本專案由Chia-Hsin Tsai所開發，並不保證長期維護。",
     "permissions": [
