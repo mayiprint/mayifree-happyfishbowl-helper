@@ -31,6 +31,14 @@ function onlyShowGameView() {
     return false;
 }
 
+function hideGameTips(){
+    // 隱藏提示訊息
+    const obj = document.getElementById("fm_tips");
+    if (obj) {
+        obj.style.display = "none";
+    }
+}
+
 function updateZoomIndicator() {
     // 提供網頁現在真正縮放比(因為window縮放比不一定是100%，再疊加瀏覽器縮放比，會顯示不一樣的)
     let i = window.devicePixelRatio - 1;
@@ -54,7 +62,7 @@ function main() {
         });
     }
 
-    chrome.storage.local.get(['infoShow', 'autoScroll'], function (result) {
+    chrome.storage.local.get(['infoShow', 'autoScroll', 'hideTips'], function (result) {
         if ((typeof result.infoShow === 'undefined' || result.infoShow == true) && isEnabledShare == false) {
             //替代遊戲分享功能(原本需要分享到FB首頁，但很多人不喜歡，所以添加此功能)
             // background會替換官方JS檔案，但分享會受到原本iFrame大小限制，無法顯示所有內容，因此這裡需要改變畫框大小
@@ -73,7 +81,13 @@ function main() {
                 isEnabledAutoScroll = true;
             }
         }
+        
+        //隱藏提示
+        if (typeof result.hideTips !== 'undefined' && result.hideTips == true) {
+            hideGameTips();
+        }
     });
+
 }
 
 // 注入替換官方分享功能的JS檔案Function

@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return false;
     }
     // 載入設定選項
-    chrome.storage.local.get(['autoScroll', 'ratio', 'infoShow', 'blockAdNew','speedRange'], function (result) { //'blockAd', 
+    chrome.storage.local.get(['autoScroll', 'ratio', 'infoShow', 'blockAdNew','speedRange',"hideTips"], function (result) { //'blockAd', 
         document.getElementById("auto-scroll").checked = result.autoScroll == true ? true : false;
         // document.getElementById("block-ad").checked = result.blockAd == true ? true : false;
         document.getElementById("info-show").checked = result.infoShow == false ? false : true;
         document.getElementById("block-ad-new").checked = result.blockAdNew == true ? true : false;
+        document.getElementById("hide-tips").checked = result.hideTips == true ? true : false;
         console.log(result.speedRange)
         document.getElementById("speedRange").value = result.speedRange || 1;
         document.getElementById("speedValue").textContent = result.speedRange || 1;
@@ -38,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     document.getElementById('block-ad-new').addEventListener('click', function () {
         updateStorageAndDisplay('block-ad-new', 'blockAdNew', 'refresh-danger');
+    });
+    document.getElementById('hide-tips').addEventListener('click', function () {
+        updateStorageAndDisplay('hide-tips', 'hideTips', 'refresh-danger');
     });
 
     // 調整速度
